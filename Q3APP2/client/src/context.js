@@ -69,6 +69,12 @@ checkResLen = () => {
     )
   }
 
+  resetResponseState = () => {
+    this.setState({
+      responses: []
+    })
+  }
+
   getSelectedSurvey = (date) => {
     axios.get(`/api/responses/${date}`)
     .then(res => console.log(res))
@@ -122,6 +128,7 @@ checkResLen = () => {
     return (
       <div>
          <Context.Provider value={{
+           resetResponseState: this.resetResponseState,
            deleteUser: this.deleteUser,
            getAllUsers: this.getAllUsers,
            getSelectedSurvey: this.getSelectedSurvey,

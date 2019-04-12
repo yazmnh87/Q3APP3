@@ -27,6 +27,11 @@ const ProfileSchema = new Schema({
     },
     mentor: {
         type: String
+    },
+    socialMedia: {
+        facebookURL: {
+            type: string
+        }
     }
 })
 

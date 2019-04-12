@@ -113,14 +113,15 @@ router.post('/login', (req, res) => {
     })
 })
 
-router.delete('/:id', (req, res) => {
-    // console.log(req)
-    User.findById(req.params.id)
-    .populate('responses')
-    .populate('profiles')
-    .deleteMany()
-    .then(user => res.send(user)
-)})
+router.delete('/:id', async (req, res, next) => {
+    try {
+    await User.findByIdAndRemove({_id: req.params.id})
+    await Response.deleteMany({user: req.params.id}) 
+    }
+    catch{
+        if(err)console.log(err)
+    }
+})
 
 router.get('/allusers', (req, res) => {
     // console.log(req)

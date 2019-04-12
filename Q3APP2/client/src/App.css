@@ -175,3 +175,8 @@ input[type=range].rgcolor:focus::-ms-fill-upper {
   width: 800px;
   height: 400px;
 }
+
+.form-container{
+  width: 75%;
+  height: 500px;
+}

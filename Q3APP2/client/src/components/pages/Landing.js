@@ -1,8 +1,13 @@
 import React, { Component } from 'react'
 import Navbar from '../Navbar'
 import { Link } from 'react-router-dom'
+import { withProvider } from '../../context'
 
 class Landing extends Component {
+
+  componentDidMount(){
+    this.props.resetResponseState()
+  }
   render() {
     return (
       <div>
@@ -28,4 +33,4 @@ class Landing extends Component {
   }
 }
 
-export default Landing
+export default withProvider(Landing)
